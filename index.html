@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google</title>
+    <!-- Fake Google Icon so the tab looks legit if caught -->
+    <link rel="icon" href="https://www.google.com/favicon.ico">
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- This iframe loads GeForce Now -->
+    <iframe src="https://play.geforcenow.com" id="proxy-frame"></iframe>
+    
+    <script>
+        // 1. The Cloak: Redirect the main window to about:blank
+        // This hides the Google Site URL from the address bar
+        window.location.replace("about:blank");
+        
+        // 2. Fix iframes: Ensure the proxy loads correctly inside the hidden frame
+        document.getElementById('proxy-frame').src = "https://play.geforcenow.com";
+    </script>
+</body>
+</html>
